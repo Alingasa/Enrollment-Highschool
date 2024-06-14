@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('section_id')->nullable()->constrained()->cascadeOnUpdate();
+            // $table->foreignId('section_id')->nullable()->constrained()->cascadeOnUpdate();
             $table->string('subject_code')->unique();
             $table->string('subject_title');
             $table->foreignId('strand_id')->nullable()->constrained()->cascadeOnUpdate();
