@@ -22,12 +22,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('subject_teacher', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('teacher_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('subject_id')->constrained()->cascadeOnDelete();
-            $table->timestamps();
-        });
+        // Schema::create('subject_teacher', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('teacher_id')->constrained()->cascadeOnDelete();
+        //     $table->foreignId('subject_id')->constrained()->cascadeOnDelete();
+        //     $table->timestamps();
+        // });
     }
 
     /**
