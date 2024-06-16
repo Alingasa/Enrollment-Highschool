@@ -78,10 +78,11 @@ class Student extends Model
     //     return $this->attributes['school_id'] = $lastTwoDigits.'-'.str_pad(Student::count(), 4, '0', STR_PAD_LEFT);
     // }
     public function getBirthdateAttribute($value)
-{
-    // Assuming $value is in Y-m-d format
-    return Carbon::parse($value)->format('m-d-Y');
-}
+    {
+        // Assuming $value is in Y-m-d format
+        return Carbon::parse($value)->isoFormat('MMMM DD, YYYY');
+    }
+
 
 }
 //24-0001
