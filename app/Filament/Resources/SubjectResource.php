@@ -28,7 +28,7 @@ class SubjectResource extends Resource
                 Forms\Components\Section::make('Subjects')
                 ->columns(2)
                 ->schema([
-                    Forms\Components\select::make('section_id')
+                    Forms\Components\Select::make('section_id')
                     ->required()
                     ->relationship(name: 'section', titleAttribute: 'name'),
                 Forms\Components\select::make('strand_id')
