@@ -51,7 +51,7 @@ class StudentResource extends Resource
                         Status::ENROLLED->value,
                     ]))
                     ->unique(table: 'students', column: 'school_id', ignoreRecord: true),
-                Forms\Components\select::make('grade_level')
+                Forms\Components\Select::make('grade_level')
                 ->live()
                 ->required()
                 ->options(GradeType::class),
