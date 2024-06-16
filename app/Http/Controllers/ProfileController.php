@@ -12,7 +12,6 @@ class ProfileController extends Controller
     //
     public function show($id){
         $record = Student::findOrFail($id);
-
         return view('profile.show', compact('record'));
     }
 }
