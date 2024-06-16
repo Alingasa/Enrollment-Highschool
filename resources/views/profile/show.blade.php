@@ -146,7 +146,7 @@
             {{-- <img src="{{ $record->profile_image ?? 'http://try.test/default_images/me.jpg' }}" alt="profile"> --}}
                     <img src="{{ 'http://enrollment-highschool.webactivities.online/storage/'.$record->profile_image ?? 'http://enrollment-highschool.webactivities.online/default_images/me.jpg' }}" alt="profile">
         </div>
-{{dd($record)}}
+{{-- {{dd($record)}} --}}
         <div class="details">
             <p><span>NAME:</span> {{ $record->full_name}}</p>
             <p><span>DATE OF BIRTH:</span> {{$record->birthdate}}</p>
