@@ -66,7 +66,7 @@ class EnrollmentResource extends Resource
                     //  ])),
                     Forms\Components\Select::make('section_id')
                         ->searchable()
-                        ->relationship(name: 'section')
+                        ->relationship(name: 'section', titleAttribute: 'name')
                         ->getOptionLabelFromRecordUsing(fn ($record) => $record->name)
                         ->required()
                         ->preload()
