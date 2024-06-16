@@ -30,15 +30,15 @@ class SectionRelationManager extends RelationManager
             ->emptyStateHeading('No Subject Yet')
             ->recordTitleAttribute('subjects')
             ->columns([
-                Tables\Columns\TextColumn::make('subject_code')
+                Tables\Columns\TextColumn::make('subjects.subject_code')
                 ->listWithLineBreaks()
                 ->bulleted()
                 ->label('Subject Code'),
-                Tables\Columns\TextColumn::make('subject_title')
+                Tables\Columns\TextColumn::make('subjects.subject_title')
                 ->bulleted()
                 ->listWithLineBreaks()
                 ->label('Subject Title'),
-                Tables\Columns\TextColumn::make('subject_type')
+                Tables\Columns\TextColumn::make('subjects.subject_type')
                 ->bulleted()
                 ->listWithLineBreaks()
                 ->label('Subject Type'),
