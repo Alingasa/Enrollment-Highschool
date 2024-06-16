@@ -147,7 +147,7 @@
             @if ($record->profile_image)
             <img src='{{"http://enrollment-highschool.webactivities.online/storage/".$record->profile_image}}'; alt="profile"/>
             @else
-            <img src="{{'http://enrollment-highschool.webactivities.online/storage/default_images/me.jpg'}}" alt="profile">
+            <img src="{{'http://enrollment-highschool.webactivities.online/default_images/me.jpg'}}" alt="profile">
             @endif
 
         </div>
