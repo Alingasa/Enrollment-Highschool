@@ -144,7 +144,7 @@
         </div>
         <div class="photo">
             {{-- <img src="{{ $record->profile_image ?? 'http://try.test/default_images/me.jpg' }}" alt="profile"> --}}
-                    <img src="{{ 'http://enrollment-highschool.webactivities.online/storage/'. $record->profile_image ?? 'default_images/me.jpg' }}" alt="profile">
+            <img src="{{ 'http://enrollment-highschool.webactivities.online/storage/' . ($record->profile_image ?? 'default_images/me.jpg') }}" alt="profile">
         </div>
 {{-- {{dd($record)}} --}}
         <div class="details">
