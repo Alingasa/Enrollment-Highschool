@@ -37,7 +37,7 @@ class FilamentServiceProvider extends ServiceProvider
     {
         Panel::configureUsing(function (Panel $panel) {
             $panel
-            ->spa()
+            ->spa(false)
             ->profile(isSimple: false)
             ->colors([
                 'primary' => Color::Sky,
