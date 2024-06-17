@@ -18,13 +18,22 @@ class CreateEnrollment extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
 
-        // dd($data['full_name']);
+        $existingEnrollment = Student::where('id', $data['student_id'])->where('status', Status::ENROLLED)->first();
+        if ($existingEnrollment) {
+            // Display a message and prevent creation
+            Filament::notify('danger', 'This student is already enrolled.');
+            abort(403, 'This student is already enrolled.');
+        }
+
         $record = Student::find($data['student_id']);
-        // dd($record);
         $record->status = Status::ENROLLED;
-        // $record->school_id = Status::SETID->value;
-        // dd($record);
-        $record->save();
+        // dd($data['full_name']);
+        // $record = Student::find($data['student_id']);
+        // // dd($record);
+        // $record->status = Status::ENROLLED;
+        // // $record->school_id = Status::SETID->value;
+        // // dd($record);
+        // $record->save();
         return $data;
     }
     protected function handleRecordCreation(array $data): Model
