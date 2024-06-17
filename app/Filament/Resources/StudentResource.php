@@ -89,7 +89,6 @@ class StudentResource extends Resource
                     'Roman Catholic',
                     'Muslim',
                     'Protestant',
-                    'Islam',
                     'Iglesia ni Cristo',
                     'Seventh Day Adventist',
                     'Bible Baptist Church',

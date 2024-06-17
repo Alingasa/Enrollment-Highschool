@@ -57,13 +57,13 @@ class TeacherResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('civil_status')
                     ->options(CivilStatus::class),
-                Forms\Components\TextInput::make('contact_number'),
+                Forms\Components\TextInput::make('contact_number')
+                ->maxlength(11),
                 Forms\Components\Select::make('religion')
                 ->options([
                     'Roman Catholic',
                     'Muslim',
                     'Protestant',
-                    'Islam',
                     'Iglesia ni Cristo',
                     'Seventh Day Adventist',
                     'Bible Baptist Church',
