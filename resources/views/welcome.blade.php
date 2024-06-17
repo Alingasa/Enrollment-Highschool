@@ -110,7 +110,7 @@
                     <form id="schoolidform" action="/updatestudent" method="post" hidden>
                         @csrf
                         <div class="mb-3">
-                            @if ($errors->any())
+                            {{-- @if ($errors->any())
                             <div id="error-alert" class="alert alert-danger">
                                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
                                 <ul>
@@ -129,7 +129,7 @@
                                 <div id="success-alert" class="alert alert-success">
                                     <p>{{ $message }}</p>
                                 </div>
-                            @endif
+                            @endif --}}
 
                             <div class="col-md-12 mb-3">
                                 <label for="school_id" class="form-label">Enter your school ID.</label>
