@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
@@ -9,7 +10,8 @@ Route::get('/', function () {
     return view('webpage');
 });
 
-Route::get('/welcome',[StudentController::class,'welcome']);
+Route::get('/', [FrontendController::class, 'index']);
+Route::get('/Enroll',[StudentController::class,'welcome']);
 // Route::get('/', fybc)
 Route::resource('/students', StudentController::class);
 Route::post('/updatestudent',[StudentController::class,'updatestudent']);
