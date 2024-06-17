@@ -82,6 +82,7 @@ class StudentResource extends Resource
                     ->options(CivilStatus::class),
                 Forms\Components\TextInput::make('contact_number')
                 ->numeric()
+                ->maxlength(11)
                 ->required(),
                 Forms\Components\TextInput::make('religion')
                 ->required(),
