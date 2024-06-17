@@ -51,7 +51,7 @@
 </head>
 <body>
 
-    @if(Session::has('error'))
+    {{-- @if(Session::has('error'))
     <div class="alert alert-danger form-container" role="alert">
         {{ Session::get('error') }}
     </div>
@@ -65,7 +65,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif --}}
     <div class="form-container">
         <h2 class="text-center mb-4">Student Enrollment Form</h2>
         <form id="studentform" action="{{ route('students.store') }}" method="post" enctype="multipart/form-data" class="row g-3">
@@ -182,7 +182,7 @@
               </div>
             <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-danger">Reset</button>
+                <a href="/" type="button" class="btn btn-danger">Cancel</a>
             </div>
         </form>
     </div>
