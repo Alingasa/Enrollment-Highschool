@@ -12,10 +12,14 @@
         body {
             background-color: #f0f8ff;
             font-family: 'Arial', sans-serif;
+            background-image: url('default_images/mlg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
         .boxform {
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
             border-radius: 10px;
             padding: 2rem;
             margin-top: 2rem;
@@ -110,7 +114,7 @@
                     <form id="schoolidform" action="/updatestudent" method="post" hidden>
                         @csrf
                         <div class="mb-3">
-                            @if ($errors->any())
+                            {{-- @if ($errors->any())
                             <div id="error-alert" class="alert alert-danger">
                                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
                                 <ul>
@@ -129,7 +133,7 @@
                                 <div id="success-alert" class="alert alert-success">
                                     <p>{{ $message }}</p>
                                 </div>
-                            @endif
+                            @endif --}}
 
                             <div class="col-md-12 mb-3">
                                 <label for="school_id" class="form-label">Enter your school ID.</label>
