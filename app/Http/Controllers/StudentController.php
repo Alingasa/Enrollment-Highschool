@@ -143,12 +143,12 @@ class StudentController extends Controller
             'zip_code'=> 'required',
             'guardian_name'=> 'required',
             'grade_level'=> 'required',
-            'strand_id' => 'required',
-            'profile_image' => 'required',
+
+
 
         ]);
 
-        $student = Student::where('school_id', $data['school_id'])->first();
+
 
         if (!$student) {
             return back()->with('error', 'Student with provided school ID not found.');
@@ -176,7 +176,7 @@ class StudentController extends Controller
 
         $student->update($data);
 
-        return back()->with('success', 'You are successfully apply for enrollment!');
+        return view('welcome')->with('success', 'You are successfully apply for enrollment!');
     }
     catch (\Illuminate\Database\QueryException $e)
     {
@@ -228,7 +228,7 @@ public function updatestudent(Request $request, Student $student)
 
     $student->update($data);
 
-    return back()->with('success', 'You are successfully apply for enrollment!');
+    return view('welcome')->with('success', 'You are successfully apply for enrollment!');
 }
 catch (\Illuminate\Database\QueryException $e)
 {
@@ -253,4 +253,24 @@ catch (\Illuminate\Database\QueryException $e)
     {
         //
     }
+
+
+    public function findschoolid(Request $request,Student $student){
+
+    $data =  $request->validate([
+
+        'school_id'=> 'required',
+
+    ]);
+
+
+    $student = Student::where('school_id', $request->school_id)->first();
+    $strand = Strand::all();
+    if (!$student) {
+        return redirect()->back()->with('error', 'Student with provided school ID not found.');
+    }
+
+    return view('students.updatestudent',compact('student','strand'))->with('success', 'School ID found!');
+    }
+
 }
