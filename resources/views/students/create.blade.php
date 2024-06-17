@@ -12,11 +12,15 @@
         body {
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
+            background-image: url('default_images/mlg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
         .form-container {
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,1);
             padding: 30px;
             margin: 30px auto;
             max-width: 900px;

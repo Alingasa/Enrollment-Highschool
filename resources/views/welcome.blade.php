@@ -12,10 +12,14 @@
         body {
             background-color: #f0f8ff;
             font-family: 'Arial', sans-serif;
+            background-image: url('default_images/mlg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
         .boxform {
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
             border-radius: 10px;
             padding: 2rem;
             margin-top: 2rem;
