@@ -14,6 +14,19 @@ class StudentController extends Controller
     public function index()
     {
         //
+        $students = Student::all();
+
+       if($students == true){
+        return response()->json([
+            'status' => 200,
+            'data' => $students,
+        ]);
+       }else{
+        return response()->json([
+            'status' => 404,
+            'message' => 'Not Found!'
+        ]);
+       }
     }
 
     /**
