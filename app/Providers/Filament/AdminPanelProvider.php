@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
             //     'primary' => Color::Amber,
             // ])
             ->favicon(asset('/default_images/MLG_Logo.png'))
-            ->brandName('Enrollment-HighSchool')
+            ->brandName('HighSchool')
             ->brandLogo(asset('/default_images/MLG_Logo.png'))
             ->brandLogoHeight('3rem')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
