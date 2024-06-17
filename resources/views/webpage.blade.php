@@ -700,7 +700,6 @@
     <script src="webpage/lib/waypoints/waypoints.min.js"></script>
     <script src="webpage/lib/counterup/counterup.min.js"></script>
     <script src="webpage/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
