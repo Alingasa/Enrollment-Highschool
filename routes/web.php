@@ -10,6 +10,7 @@ Route::get('/', function () {
     return view('webpage');
 });
 
+Route::post('/messages', [FrontendController::class, 'store']);
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('/Enroll',[StudentController::class,'welcome']);
 // Route::get('/', fybc)
