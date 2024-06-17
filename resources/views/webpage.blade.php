@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="webpage/css/style.css" rel="stylesheet">
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 </head>
 
 <body>
@@ -66,7 +67,7 @@
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="{{url('/')}}" class="navbar-brand p-0">
+            <a href="#" class="navbar-brand p-0">
                 <h1 class="m-0"><i class="fa fa-users me-2"></i>MLG-HighSchool  </h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -74,11 +75,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
+                    <a href="#home" class="nav-item nav-link active">Home</a>
                     <a href="#1" class="nav-item nav-link">About</a>
                     <a href="#2" class="nav-item nav-link">Services</a>
                     {{-- <a href="#3" class="nav-item nav-link">Pricing Plan</a> --}}
-                    <a href="#4" class="nav-item nav-link">Post</a>
+                    <a href="#3" class="nav-item nav-link">Contact Us</a>
                 </div>
             </div>
         </nav>
@@ -103,7 +104,7 @@
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown">Creative & Innovative</h5>
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">Creative & Innovative Digital Solution</h1>
                             <a href="quote.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Free Quote</a>
-                            <a href="" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                            <a href="#3" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -326,7 +327,7 @@
     <!-- Service End -->
 
     <!-- Quote Start -->
-    <div id="5" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div id="3" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-7">
@@ -338,26 +339,34 @@
                         <p class="mb-4">We are committed to providing you with the best assistance possible and ensuring a smooth enrollment process. </p>
 
                 </div>
+
                 <div class="col-lg-5">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                    <script>
+
+                        @if(session('sent_success'))
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sent',
+                            showConfirmButton: false,
+                            timer: 2500
+                        });
+                        @endif
+                     </script>
                     <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form>
+                        <form action="{{url('/messages')}}" method="POST">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
+                                    <input type="text" class="form-control bg-light border-0 @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" placeholder="Your Name" style="height: 55px;">
                                 </div>
                                 <div class="col-12">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" class="form-control bg-light border-0 @error('email') is-invalid @enderror" name="email" value="{{old('email')}}" placeholder="Your Email" style="height: 55px;">
                                 </div>
+
                                 <div class="col-12">
-                                    <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
+                                    <textarea class="form-control bg-light border-0 @error('messages') is-invalid @enderror" name="messages" rows="3"value="{{old('messages')}}" placeholder="Message"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-3" type="submit">Send a Message</button>
@@ -681,6 +690,8 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
+
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -689,6 +700,7 @@
     <script src="webpage/lib/waypoints/waypoints.min.js"></script>
     <script src="webpage/lib/counterup/counterup.min.js"></script>
     <script src="webpage/lib/owlcarousel/owl.carousel.min.js"></script>
+
 
     <!-- Template Javascript -->
     <script src="webpage/js/main.js"></script>
