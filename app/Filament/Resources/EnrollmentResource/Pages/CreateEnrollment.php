@@ -3,13 +3,15 @@
 namespace App\Filament\Resources\EnrollmentResource\Pages;
 
 use App\Status;
-use Filament\Actions;
+
 use App\Models\Student;
+use App\Models\Enrollment;
+use Illuminate\Support\Arr;
 use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
 use App\Filament\Resources\EnrollmentResource;
-use Illuminate\Support\Arr;
 
 class CreateEnrollment extends CreateRecord
 {
@@ -18,15 +20,18 @@ class CreateEnrollment extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
 
-        $existingEnrollment = Student::where('id', $data['student_id'])->where('status', Status::ENROLLED)->first();
-        if ($existingEnrollment) {
-            // Display a message and prevent creation
-            Filament::notify('danger', 'This student is already enrolled.');
-            abort(403, 'This student is already enrolled.');
-        }
+        //  $existingEnrollment = Student::where('id', $data['student_id']);
+        // //  dd($existingEnrollment);
+        // if ($existingEnrollment) {
+        //     $record1 = Student::find($data['student_id']);
+        //     // dd($record1);
+        //     $record1->status =  Status::ENROLLED;
+        //     $existingEnrollment->update($record1);
+        // }
 
-        $record = Student::find($data['student_id']);
-        $record->status = Status::ENROLLED;
+            $record = Student::find($data['student_id']);
+            $record->status = Status::ENROLLED;
+            $record->save();
         // dd($data['full_name']);
         // $record = Student::find($data['student_id']);
         // // dd($record);
@@ -38,6 +43,13 @@ class CreateEnrollment extends CreateRecord
     }
     protected function handleRecordCreation(array $data): Model
     {
+        $existingEnrollment = Enrollment::where('student_id', $data['student_id'])->first();
+
+        if ($existingEnrollment) {
+            // Update existing enrollment record
+            $existingEnrollment->update(Arr::except($data, 'student_id'));
+            return $existingEnrollment;
+        } else {
         $record = new ($this->getModel())(Arr::except($data, 'student'));
 
         if (
@@ -51,5 +63,6 @@ class CreateEnrollment extends CreateRecord
 
         return $record;
     }
+}
 
 }

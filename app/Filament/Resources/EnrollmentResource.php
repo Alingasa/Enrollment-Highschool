@@ -118,6 +118,7 @@ class EnrollmentResource extends Resource
                 ->badge()
                 ->sortable(),
                 Tables\Columns\TextColumn::make('student.full_name')
+                ->label('Full Name')
                   ->sortable(['middle_name', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('section.name')
                     ->searchable()
