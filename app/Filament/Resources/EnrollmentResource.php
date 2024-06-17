@@ -94,7 +94,7 @@ class EnrollmentResource extends Resource
                     //  ->getOptionLabelFromRecordUsing(fn ($record) => $record->full_name)
 
                     ])
-                    ->visible(fn ($get) => !empty($get('student_id'))),
+                    ->visible(fn ($get) => !empty($get('school_id'))),
          ]);
 
     }
