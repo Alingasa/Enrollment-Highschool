@@ -149,7 +149,15 @@
                     <option>Roman Catholic</option>
                     <option>Muslim</option>
                     <option>Protestant</option>
-                    <option>Other</option>
+                    <option>Iglesia ni Cristo</option>
+                    <option>Seventh Day Adventist</option>
+                    <option>Aglipay</option>
+                    <option>Iglesia Filipina Independiente</option>
+                    <option>Bible Baptist Church</option>
+                    <option>UCCP</option>
+                    <option>Jehova's Witness</option>
+                    <option>Church of Christ</option>
+                    <option>None</option>
                 </select>
                 @error("religion")
                 <p class="text-danger">{{ $message }}</p>
