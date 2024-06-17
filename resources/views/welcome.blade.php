@@ -109,6 +109,7 @@
                                 </label>
                             </div>
                             <input type="submit" name="proceed" id="proceed" class="btn btn-primary w-100 mt-3" value="Proceed">
+                            <a href="{{url('/')}}"  name="proceed" id="proceed" class="btn btn-danger w-100 mt-3">Cancel</a>
                         </div>
                     </form>
                     <form id="schoolidform" action="/updatestudent" method="post" hidden>
