@@ -84,7 +84,20 @@ class StudentResource extends Resource
                 ->numeric()
                 ->maxlength(11)
                 ->required(),
-                Forms\Components\TextInput::make('religion')
+                Forms\Components\Select::make('religion')
+                ->options([
+                    'Roman Catholic',
+                    'Muslim',
+                    'Protestant',
+                    'Islam',
+                    'Iglesia ni Cristo',
+                    'Seventh Day Adventist',
+                    'Bible Baptist Church',
+                    'UCCP',
+                    "Jehova's Witness",
+                    'Church of Christ',
+                    'None'
+                ])
                 ->required(),
                 // Forms\Components\TextInput::make('facebook_url')
                 // ->required()

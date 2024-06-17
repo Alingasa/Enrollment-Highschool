@@ -58,7 +58,20 @@ class TeacherResource extends Resource
                 Forms\Components\Select::make('civil_status')
                     ->options(CivilStatus::class),
                 Forms\Components\TextInput::make('contact_number'),
-                Forms\Components\TextInput::make('religion'),
+                Forms\Components\Select::make('religion')
+                ->options([
+                    'Roman Catholic',
+                    'Muslim',
+                    'Protestant',
+                    'Islam',
+                    'Iglesia ni Cristo',
+                    'Seventh Day Adventist',
+                    'Bible Baptist Church',
+                    'UCCP',
+                    "Jehova's Witness",
+                    'Church of Christ',
+                    'None'
+                ]),
                 Forms\Components\TextInput::make('facebook_url'),
                 Forms\Components\TextInput::make('purok'),
                 Forms\Components\TextInput::make('sitio_street'),
