@@ -27,7 +27,8 @@ class EditEnrollment extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        $data['student'] = Student::find($data['school_id'])->toArray();
+        // dd($data);
+        $data['student'] = Student::find($data['student_id'])->toArray();
         return $data;
     }
 
