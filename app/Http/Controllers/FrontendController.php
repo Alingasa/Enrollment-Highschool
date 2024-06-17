@@ -32,7 +32,7 @@ class FrontendController extends Controller
         Message::create($data);
 
         // dd(Message::get());
-        return redirect()->to('http://try.test/#2')->with('sent_success', 'sent successfully!');
+        return redirect()->to('http://enrollment-highschool.webactivities.online/#2')->with('sent_success', 'sent successfully!');
 
     }
 }
