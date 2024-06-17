@@ -5,11 +5,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentformController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('webpage');
+});
 
-Route::get('/',[StudentController::class,'welcome']);
+Route::get('/welcome',[StudentController::class,'welcome']);
+// Route::get('/', fybc)
 Route::resource('/students', StudentController::class);
 Route::post('/updatestudent',[StudentController::class,'updatestudent']);
 
