@@ -8,6 +8,7 @@ use App\GenderType;
 use Filament\Forms;
 use App\CivilStatus;
 use Filament\Tables;
+use App\ReligionEnum;
 use App\Models\Student;
 use App\StudentTypeEnum;
 use Filament\Forms\Form;
@@ -85,18 +86,7 @@ class StudentResource extends Resource
                 ->maxlength(11)
                 ->required(),
                 Forms\Components\Select::make('religion')
-                ->options([
-                    'Roman Catholic',
-                    'Muslim',
-                    'Protestant',
-                    'Iglesia ni Cristo',
-                    'Seventh Day Adventist',
-                    'Bible Baptist Church',
-                    'UCCP',
-                    "Jehova's Witness",
-                    'Church of Christ',
-                    'None'
-                ])
+               ->options(ReligionEnum::class)
                 ->required(),
                 // Forms\Components\TextInput::make('facebook_url')
                 // ->required()
