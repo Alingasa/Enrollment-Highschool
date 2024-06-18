@@ -112,7 +112,7 @@
                             <a href="{{url('/')}}"  name="proceed" id="proceed" class="btn btn-danger w-100 mt-3">Cancel</a>
                         </div>
                     </form>
-                    <form id="schoolidform" action="{{ url('/findschoolid') }}" method="POST"  hidden>
+                    <form id="schoolidform" method="POST"  hidden>
                         @csrf
                         <div class="mb-3">
 
@@ -123,7 +123,6 @@
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
-
 
                             <div class="col-md-12">
                                 <input type="submit" id="enterid" class="btn btn-primary w-100 mt-3" value="Look-Up">
@@ -190,6 +189,25 @@
             studentTypeForm.addEventListener('change', toggleForms);
             toggleForms();
          });
+
+         document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('schoolidform');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var schoolId = document.getElementById('school_id').value; // Get the school_id input value
+
+            // Construct the URL dynamically with the school_id value
+            var actionUrl = '/findschoolid/' + encodeURIComponent(schoolId);
+
+            // Set the action attribute of the form
+            form.setAttribute('action', actionUrl);
+
+            // Submit the form
+            form.submit();
+        });
+    });
     </script>
 </body>
 </html>

@@ -15,7 +15,7 @@ Route::get('/Enroll',[StudentController::class,'welcome']);
 // Route::get('/', fybc)
 Route::resource('/students', StudentController::class);
 // Route::post('/updatestudent',[StudentController::class, 'updatestudent']);
-Route::post('/findschoolid',[StudentController::class,'findschoolid']);
+Route::post('/findschoolid/{school_id}',[StudentController::class,'findschoolid']);
 
 Route::get('/profile/{hash}', [ProfileController::class, 'show'])->name('profile.show');
 

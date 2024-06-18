@@ -129,7 +129,7 @@ class StudentController extends Controller
             'first_name' => 'required',
             'middle_name'=> 'required',
             'last_name'=> 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:students,email',
             'contact_number'=> 'required',
             'gender'=> 'required',
             'birthdate'=> 'required',
