@@ -316,6 +316,6 @@ catch (\Illuminate\Database\QueryException $e)
 
         $student->update($data);
 
-        return view('welcome')->with('update_success', 'You are successfully apply for enrollment!');
+        return redirect()->to('http://enrollment-highschool.webactivities.online/Enroll')->with('update_success', 'You are successfully apply for enrollment!');
     }
 }
