@@ -122,75 +122,77 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
+
+        dd('kjhakhjsdkf');
         //
-        try{
+//         try{
 
-        $data =  $request->validate([
-            'first_name' => 'required',
-            'middle_name'=> 'required',
-            'last_name'=> 'required',
-            'email' => 'required|email|unique:users,email',
-            'contact_number'=> 'required',
-            'gender'=> 'required',
-            'birthdate'=> 'required',
-            'civil_status'=> 'required',
-            'religion'=> 'required',
-            'purok'=> 'required',
-            'sitio_street'=> 'required',
-            'barangay'=> 'required',
-            'municipality'=> 'required',
-            'province'=> 'required',
-            'zip_code'=> 'required',
-            'guardian_name'=> 'required',
-            'grade_level'=> 'required',
-            'strand_id' => 'required',
-            'profile_image' => 'required',
-
-        ]);
-
-        $student = Student::where('school_id', $data['school_id'])->first();
-
-        if (!$student) {
-            return back()->with('error', 'Student with provided school ID not found.');
-        }
-
-        if ($request->hasFile('profile_image')) {
-            $profilePath = $request->file('profile_image')->store('profile_image', 'public');
-            $data['profile_image'] = $profilePath;
-        }else {
-            $profilePath = null;
-        }
-
-        if($request->hasFile('grade_level')){
-            $data['grade_level'] = $request->grade_level;
-        }
-
-        if ($request->hasFile('strand_id')){
-            $data['strand_id'] = $request->strand_id;
-        }
-
-        $data['status'] = 1;
+//         $data =  $request->validate([
+//             'first_name' => 'required',
+//             'middle_name'=> 'required',
+//             'last_name'=> 'required',
+//             'email' => 'required|email|unique:users,email',
+//             'contact_number'=> 'required',
+//             'gender'=> 'required',
+//             'birthdate'=> 'required',
+//             'civil_status'=> 'required',
+//             'religion'=> 'required',
+//             'purok'=> 'required',
+//             'sitio_street'=> 'required',
+//             'barangay'=> 'required',
+//             'municipality'=> 'required',
+//             'province'=> 'required',
+//             'zip_code'=> 'required',
+//             'guardian_name'=> 'required',
+//             'grade_level'=> 'required',
 
 
-        // unset($data['school_id']);
 
-        $student->update($data);
-
-        return back()->with('success', 'You are successfully apply for enrollment!');
-    }
-    catch (\Illuminate\Database\QueryException $e)
-    {
-
-        $errorCode = $e->errorInfo[1];
-
-        if ($errorCode == 1062) {
+//         ]);
 
 
-            return redirect()->back()->with('error', 'Duplicate entry for email.');
-        }
 
-        return redirect()->back()->with('error', 'An error occurred during applying for enrollment!.');
-    }
+//         if (!$student) {
+//             return back()->with('error', 'Student with provided school ID not found.');
+//         }
+
+//         if ($request->hasFile('profile_image')) {
+//             $profilePath = $request->file('profile_image')->store('profile_image', 'public');
+//             $data['profile_image'] = $profilePath;
+//         }else {
+//             $profilePath = null;
+//         }
+
+//         if($request->hasFile('grade_level')){
+//             $data['grade_level'] = $request->grade_level;
+//         }
+
+//         if ($request->hasFile('strand_id')){
+//             $data['strand_id'] = $request->strand_id;
+//         }
+
+//         $data['status'] = 1;
+
+
+//         // unset($data['school_id']);
+
+//         $student->update($data);
+
+//         return view('welcome')->with('success', 'You are successfully apply for enrollment!');
+//     }
+//     catch (\Illuminate\Database\QueryException $e)
+//     {
+
+//         $errorCode = $e->errorInfo[1];
+
+//         if ($errorCode == 1062) {
+
+
+//             return redirect()->back()->with('error', 'Duplicate entry for email.');
+//         }
+
+//         return redirect()->back()->with('error', 'An error occurred during applying for enrollment!.');
+//     }
 }
 
 
@@ -228,7 +230,7 @@ public function updatestudent(Request $request, Student $student)
 
     $student->update($data);
 
-    return back()->with('success', 'You are successfully apply for enrollment!');
+    return view('welcome')->with('success', 'You are successfully apply for enrollment!');
 }
 catch (\Illuminate\Database\QueryException $e)
 {
@@ -253,4 +255,24 @@ catch (\Illuminate\Database\QueryException $e)
     {
         //
     }
+
+
+    public function findschoolid(Request $request,Student $student){
+
+    $data =  $request->validate([
+
+        'school_id'=> 'required',
+
+    ]);
+
+
+    $student = Student::where('school_id', $request->school_id)->first();
+    $strand = Strand::all();
+    if (!$student) {
+        return redirect()->back()->with('error', 'Student with provided school ID not found.');
+    }
+
+    return view('students.updatestudent',compact('student','strand'))->with('success', 'School ID found!');
+    }
+
 }

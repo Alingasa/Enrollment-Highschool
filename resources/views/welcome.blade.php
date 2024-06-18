@@ -112,61 +112,22 @@
                             <a href="{{url('/')}}"  name="proceed" id="proceed" class="btn btn-danger w-100 mt-3">Cancel</a>
                         </div>
                     </form>
-                    <form id="schoolidform" action="/updatestudent" method="post" hidden>
+                    <form id="schoolidform" action="{{ url('/findschoolid') }}" method="POST" hidden>
                         @csrf
                         <div class="mb-3">
-                            {{-- @if ($errors->any())
-                            <div id="error-alert" class="alert alert-danger">
-                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-
-                            @if(Session::has('error'))
-                                <div id="error-alert" class="alert alert-danger" role="alert">
-                                    {{ Session::get('error') }}
-                                </div>
-                            @elseif ($message = Session::get('success'))
-                                <div id="success-alert" class="alert alert-success">
-                                    <p>{{ $message }}</p>
-                                </div>
-                            @endif --}}
 
                             <div class="col-md-12 mb-3">
                                 <label for="school_id" class="form-label">Enter your school ID.</label>
                                 <input type="text" class="form-control @error('school_id') is-invalid @enderror" name="school_id" id="school_id" value="{{old('school_id') }}" autofocus>
+                                @error('school_id')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
 
-                            <div class="col-md-12 mb-3">
-                                <label for="grade_level" class="form-label">Grade Level</label>
-                                <select id="grade_level" name="grade_level" class="form-select @error('grade_level') is-invalid @enderror" value="{{old('grade_level') }}">
-                                  <option selected disabled>Choose...</option>
-                                  <option value="7">Grade 7</option>
-                                  <option value="8">Grade 8</option>
-                                  <option value="9">Grade 9</option>
-                                  <option value="10">Grade 10</option>
-                                  <option value="11">Grade 11</option>
-                                  <option value="12">Grade 12</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-12 mb-3" id="stranddiv" hidden>
-                                <label for="strand_id" class="form-label">Strand</label>
-                                <select id="strand" name="strand_id" class="form-select @error('strand_id') is-invalid @enderror" value="{{old('strand_id') }}">
-                                    <option selected disabled>--select strand--</option>
-                                    @foreach($strand as $list)
-                                        <option value="{{$list->id}}">{{$list->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
 
                             <div class="col-md-12">
-                                <input type="submit" id="enterid" class="btn btn-primary w-100 mt-3" value="Apply for enrollment">
-                                <a href="/" class="btn btn-danger w-100 mt-3">Cancel</a>
+                                <input type="submit" id="enterid" class="btn btn-primary w-100 mt-3" value="Look-Up">
+                                <a href="/Enroll" class="btn btn-danger w-100 mt-3">Cancel</a>
                             </div>
                         </div>
                     </form>
@@ -188,24 +149,24 @@
                 if (successAlert) successAlert.style.display = 'none';
             }, 3000);
 
-            document.getElementById('enterid').addEventListener('click', function(event){
-                const schoolid = document.getElementById("school_id").value;
-                if(schoolid === ''){
-                    alert("Please input your school ID.");
-                    document.getElementById('school_id').focus();
-                    event.preventDefault();
-                }
-            });
+            // document.getElementById('enterid').addEventListener('click', function(event){
+            //     const schoolid = document.getElementById("school_id").value;
+            //     if(schoolid === ''){
+            //         alert("Please input your school ID.");
+            //         document.getElementById('school_id').focus();
+            //         event.preventDefault();
+            //     }
+            // });
 
-            document.getElementById('grade_level').addEventListener('change',function(){
-                const grade_level = document.getElementById('grade_level').value;
-                const strandDiv = document.getElementById('stranddiv');
-                if(grade_level >= 11){
-                    strandDiv.removeAttribute('hidden');
-                } else {
-                    strandDiv.setAttribute('hidden', 'true');
-                }
-            });
+            // document.getElementById('grade_level').addEventListener('change',function(){
+            //     const grade_level = document.getElementById('grade_level').value;
+            //     const strandDiv = document.getElementById('stranddiv');
+            //     if(grade_level >= 11){
+            //         strandDiv.removeAttribute('hidden');
+            //     } else {
+            //         strandDiv.setAttribute('hidden', 'true');
+            //     }
+            // });
 
             document.getElementById('proceed').addEventListener('click',function(event){
                 event.preventDefault();
@@ -228,7 +189,7 @@
 
             studentTypeForm.addEventListener('change', toggleForms);
             toggleForms();
-        });
+         });
     </script>
 </body>
 </html>
