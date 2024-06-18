@@ -63,7 +63,7 @@
 
     <div class="form-container">
         <h2 class="text-center mb-4">Student Enrollment Form</h2>
-        <form id="studentform" action="{{ route('students.update',$student->school_id) }}" enctype="multipart/form-data" class="row g-3">
+        <form id="studentform" action="{{ route('students.update',$student->school_id) }}" method="POST" enctype="multipart/form-data" class="row g-3">
             @csrf
             @method('PUT')
             <div class="col-md-4">
