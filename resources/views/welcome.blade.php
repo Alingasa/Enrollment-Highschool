@@ -112,7 +112,7 @@
                             <a href="{{url('/')}}"  name="proceed" id="proceed" class="btn btn-danger w-100 mt-3">Cancel</a>
                         </div>
                     </form>
-                    <form id="schoolidform" action="{{ route('/findschoolid',$student->school_id) }}"  hidden>
+                    <form id="schoolidform" action="{{ url('/findschoolid') }}" method="POST" hidden>
                         @csrf
                         <div class="mb-3">
 

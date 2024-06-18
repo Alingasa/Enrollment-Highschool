@@ -122,75 +122,77 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
+
+        dd('kjhakhjsdkf');
         //
-        try{
+//         try{
 
-        $data =  $request->validate([
-            'first_name' => 'required',
-            'middle_name'=> 'required',
-            'last_name'=> 'required',
-            'email' => 'required|email|unique:users,email',
-            'contact_number'=> 'required',
-            'gender'=> 'required',
-            'birthdate'=> 'required',
-            'civil_status'=> 'required',
-            'religion'=> 'required',
-            'purok'=> 'required',
-            'sitio_street'=> 'required',
-            'barangay'=> 'required',
-            'municipality'=> 'required',
-            'province'=> 'required',
-            'zip_code'=> 'required',
-            'guardian_name'=> 'required',
-            'grade_level'=> 'required',
-
-
-
-        ]);
+//         $data =  $request->validate([
+//             'first_name' => 'required',
+//             'middle_name'=> 'required',
+//             'last_name'=> 'required',
+//             'email' => 'required|email|unique:users,email',
+//             'contact_number'=> 'required',
+//             'gender'=> 'required',
+//             'birthdate'=> 'required',
+//             'civil_status'=> 'required',
+//             'religion'=> 'required',
+//             'purok'=> 'required',
+//             'sitio_street'=> 'required',
+//             'barangay'=> 'required',
+//             'municipality'=> 'required',
+//             'province'=> 'required',
+//             'zip_code'=> 'required',
+//             'guardian_name'=> 'required',
+//             'grade_level'=> 'required',
 
 
 
-        if (!$student) {
-            return back()->with('error', 'Student with provided school ID not found.');
-        }
-
-        if ($request->hasFile('profile_image')) {
-            $profilePath = $request->file('profile_image')->store('profile_image', 'public');
-            $data['profile_image'] = $profilePath;
-        }else {
-            $profilePath = null;
-        }
-
-        if($request->hasFile('grade_level')){
-            $data['grade_level'] = $request->grade_level;
-        }
-
-        if ($request->hasFile('strand_id')){
-            $data['strand_id'] = $request->strand_id;
-        }
-
-        $data['status'] = 1;
+//         ]);
 
 
-        // unset($data['school_id']);
 
-        $student->update($data);
+//         if (!$student) {
+//             return back()->with('error', 'Student with provided school ID not found.');
+//         }
 
-        return view('welcome')->with('success', 'You are successfully apply for enrollment!');
-    }
-    catch (\Illuminate\Database\QueryException $e)
-    {
+//         if ($request->hasFile('profile_image')) {
+//             $profilePath = $request->file('profile_image')->store('profile_image', 'public');
+//             $data['profile_image'] = $profilePath;
+//         }else {
+//             $profilePath = null;
+//         }
 
-        $errorCode = $e->errorInfo[1];
+//         if($request->hasFile('grade_level')){
+//             $data['grade_level'] = $request->grade_level;
+//         }
 
-        if ($errorCode == 1062) {
+//         if ($request->hasFile('strand_id')){
+//             $data['strand_id'] = $request->strand_id;
+//         }
+
+//         $data['status'] = 1;
 
 
-            return redirect()->back()->with('error', 'Duplicate entry for email.');
-        }
+//         // unset($data['school_id']);
 
-        return redirect()->back()->with('error', 'An error occurred during applying for enrollment!.');
-    }
+//         $student->update($data);
+
+//         return view('welcome')->with('success', 'You are successfully apply for enrollment!');
+//     }
+//     catch (\Illuminate\Database\QueryException $e)
+//     {
+
+//         $errorCode = $e->errorInfo[1];
+
+//         if ($errorCode == 1062) {
+
+
+//             return redirect()->back()->with('error', 'Duplicate entry for email.');
+//         }
+
+//         return redirect()->back()->with('error', 'An error occurred during applying for enrollment!.');
+//     }
 }
 
 
