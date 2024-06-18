@@ -246,7 +246,7 @@
             </div>
             <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Apply for enrollment</button>
-                <a href="/Enroll" type="button" class="btn btn-danger">Cancel</a>
+                <a href="/" type="button" class="btn btn-danger">Cancel</a>
             </div>
         </form>
     </div>

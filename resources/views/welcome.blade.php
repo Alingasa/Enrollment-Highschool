@@ -121,7 +121,7 @@
                                 </label>
                             </div>
                             <input type="submit" name="proceed" id="proceed" class="btn btn-primary w-100 mt-3" value="Proceed">
-                            <a href="{{url('/')}}"  name="proceed" id="proceed" class="btn btn-danger w-100 mt-3">Cancel</a>
+
                         </div>
                     </form>
 
@@ -138,7 +138,7 @@
 
                             <div class="col-md-12">
                                 <input type="submit" id="enterid" class="btn btn-primary w-100 mt-3" value="Look-Up">
-                                <a href="/Enroll" class="btn btn-danger w-100 mt-3">Cancel</a>
+                                <a href="/" class="btn btn-danger w-100 mt-3">Cancel</a>
                             </div>
                         </div>
                     </form>

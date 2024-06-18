@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PrintController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
@@ -11,8 +12,8 @@ Route::get('/', function () {
 });
 
 Route::post('/messages', [FrontendController::class, 'store']);
-Route::get('/', [FrontendController::class, 'index']);
-Route::get('/Enroll',[StudentController::class,'welcome']);
+// Route::get('/', [FrontendController::class, 'index']);
+Route::get('/',[StudentController::class,'welcome']);
 // Route::get('/', fybc)
 Route::resource('/students', StudentController::class);
 // Route::post('/updatestudent',[StudentController::class, 'updatestudent']);
@@ -22,3 +23,7 @@ Route::get('/profile/{hash}', [ProfileController::class, 'show'])->name('profile
 
 // Route::post('/student', [StudentformController::class, 'createstudent']);
 Route::put('/studentsUpdate/{school_id}', [StudentController::class, 'updateSchool']);
+
+
+
+Route::get('/studentlist',[PrintController::class,'studentlist']);
