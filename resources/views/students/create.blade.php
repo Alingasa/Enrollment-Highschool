@@ -150,14 +150,14 @@
                     <option value="Muslim">Muslim</option>
                     <option value="Protestant">Protestant</option>
                     <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
-                    <option>Seventh Day Adventist</option>
-                    <option>Aglipay</option>
-                    <option>Iglesia Filipina Independiente</option>
-                    <option>Bible Baptist Church</option>
-                    <option>UCCP</option>
-                    <option>Jehova's Witness</option>
-                    <option>Church of Christ</option>
-                    <option>None</option>
+                    <option value="Seventh Day Adventist">Seventh Day Adventist</option>
+                    <option value="Aglipay">Aglipay</option>
+                    <option value="Iglesia Filipina Independiente">Iglesia Filipina Independiente</option>
+                    <option value="Bible Baptist Church">Bible Baptist Church</option>
+                    <option value="UCCP">UCCP</option>
+                    <option value="Jehova's Witness">Jehova's Witness</option>
+                    <option value="Church of Christ">Church of Christ</option>
+                    <option value="None">None</option>
                 </select>
                 @error("religion")
                 <p class="text-danger">{{ $message }}</p>
