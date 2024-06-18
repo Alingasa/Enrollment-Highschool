@@ -101,7 +101,7 @@
                         @endif
 
                         <div class="align-items-center">
-                            <h3 class="text-center mb-4">Please Select!</h3>
+                            <h3 class="text-center mb-4">Choose Your Option</h3>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="studentType" id="studentType1" checked>
                                 <label class="form-check-label" for="studentType1">
