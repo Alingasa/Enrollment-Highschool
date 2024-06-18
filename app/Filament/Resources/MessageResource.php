@@ -33,9 +33,6 @@ class MessageResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required(),
                 Forms\Components\Textarea::make('messages')
                     ->required(),
             ]);
