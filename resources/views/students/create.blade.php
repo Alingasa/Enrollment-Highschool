@@ -146,10 +146,10 @@
                 <label for="religion" class="form-label">Religion</label>
                 <select id="religion" name="religion" class="form-select @error('religion') is-invalid @enderror">
                     <option selected disabled>Choose...</option>
-                    <option>Roman Catholic</option>
-                    <option>Muslim</option>
-                    <option>Protestant</option>
-                    <option>Iglesia ni Cristo</option>
+                    <option value="Roman Catholic">Roman Catholic</option>
+                    <option value="Muslim">Muslim</option>
+                    <option value="Protestant">Protestant</option>
+                    <option value="Iglesia ni Cristo">Iglesia ni Cristo</option>
                     <option>Seventh Day Adventist</option>
                     <option>Aglipay</option>
                     <option>Iglesia Filipina Independiente</option>
