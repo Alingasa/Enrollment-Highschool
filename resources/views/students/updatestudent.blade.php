@@ -60,12 +60,15 @@
         {{ Session::get('error') }}
     </div>
     @endif
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <div class="form-container">
         <h2 class="text-center mb-4">Student Enrollment Form</h2>
-        <form id="studentform" action="{{ route('students.update', $student->id) }}" enctype="multipart/form-data" class="row g-3">
+        <form id="studentform" method="POST" action="{{ url('studentsUpdate',$student->school_id) }}" enctype="multipart/form-data" class="row g-3">
             @csrf
             @method('PUT')
+            <input type="hidden" name="status" value="1">
             <div class="col-md-4">
                 <label for="first_name" class="form-label">First Name</label>
                 <input type="text" name="first_name" class="form-control @error('first_name') is-invalid @enderror" id="first_name" value="{{ $student->first_name }}" placeholder="First Name" autofocus>
