@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Filament\Support\Contracts\HasLabel;
 
 enum ReligionEnum: string implements HasLabel
@@ -36,6 +37,3 @@ enum ReligionEnum: string implements HasLabel
             self::NONE => 'None',
         };
     }
-
-
-}

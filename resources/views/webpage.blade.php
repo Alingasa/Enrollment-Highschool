@@ -29,7 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="webpage/css/style.css" rel="stylesheet">
-    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -341,7 +341,7 @@
                 </div>
 
                 <div class="col-lg-5">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
                     <script>
 
@@ -515,6 +515,7 @@
     <script src="webpage/lib/waypoints/waypoints.min.js"></script>
     <script src="webpage/lib/counterup/counterup.min.js"></script>
     <script src="webpage/lib/owlcarousel/owl.carousel.min.js"></script>
+
 
 
     <!-- Template Javascript -->
