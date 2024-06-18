@@ -37,5 +37,5 @@ enum ReligionEnum: string implements HasLabel
         };
     }
 
-
+ //comment
 }
