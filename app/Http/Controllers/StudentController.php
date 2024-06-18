@@ -270,7 +270,7 @@ catch (\Illuminate\Database\QueryException $e)
         return redirect()->back()->with('error', 'Student with provided school ID not found.');
     }
 
-    return view('students.update',compact('student','strand'))->with('success', 'School ID found!');
+    return view('students.updatestudent',compact('student','strand'))->with('success', 'School ID found!');
     }
 
     public function updateSchool(Request $request){
