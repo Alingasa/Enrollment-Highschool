@@ -37,6 +37,4 @@ enum ReligionEnum: string implements HasLabel
             self::NONE => 'None',
         };
     }
-
- //comment
 }

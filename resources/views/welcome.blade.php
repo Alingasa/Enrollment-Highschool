@@ -62,6 +62,18 @@
     </style>
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        @if(session('update_success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Successfully Apply for Enrollment',
+            showConfirmButton: false,
+            timer: 2500
+        });
+        @endif
+     </script>
     <div class="container-fluid">
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
