@@ -112,10 +112,10 @@
                             <a href="{{url('/')}}"  name="proceed" id="proceed" class="btn btn-danger w-100 mt-3">Cancel</a>
                         </div>
                     </form>
-                    <form id="schoolidform" action="{{ url('/findschoolid') }}" method="POST" hidden>
+
+                    <form method="GET" id="schoolidform" hidden>
                         @csrf
                         <div class="mb-3">
-
                             <div class="col-md-12 mb-3">
                                 <label for="school_id" class="form-label">Enter your school ID.</label>
                                 <input type="text" class="form-control @error('school_id') is-invalid @enderror" name="school_id" id="school_id" value="{{old('school_id') }}" autofocus>
@@ -123,7 +123,6 @@
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
-
 
                             <div class="col-md-12">
                                 <input type="submit" id="enterid" class="btn btn-primary w-100 mt-3" value="Look-Up">
@@ -149,14 +148,14 @@
                 if (successAlert) successAlert.style.display = 'none';
             }, 3000);
 
-            // document.getElementById('enterid').addEventListener('click', function(event){
-            //     const schoolid = document.getElementById("school_id").value;
-            //     if(schoolid === ''){
-            //         alert("Please input your school ID.");
-            //         document.getElementById('school_id').focus();
-            //         event.preventDefault();
-            //     }
-            // });
+            document.getElementById('enterid').addEventListener('click', function(event){
+                const schoolid = document.getElementById("school_id").value;
+                if(schoolid === ''){
+                    alert("Please input your school ID.");
+                    document.getElementById('school_id').focus();
+                    event.preventDefault();
+                }
+            });
 
             // document.getElementById('grade_level').addEventListener('change',function(){
             //     const grade_level = document.getElementById('grade_level').value;
@@ -190,6 +189,25 @@
             studentTypeForm.addEventListener('change', toggleForms);
             toggleForms();
          });
+
+         document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('schoolidform');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var schoolId = document.getElementById('school_id').value; // Get the school_id input value
+
+            // Construct the URL dynamically with the school_id value
+            var actionUrl = '/findschoolid/' + encodeURIComponent(schoolId);
+
+            // Set the action attribute of the form
+            form.setAttribute('action', actionUrl);
+
+            // Submit the form
+            form.submit();
+        });
+    });
     </script>
 </body>
 </html>

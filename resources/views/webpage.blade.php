@@ -494,7 +494,7 @@
 <div class="container-fluid text-white" style="background: linear-gradient(135deg, #061429 0%, #212121 100%);">
     <div class="container text-center py-4">
         <p class="mb-0">&copy; 2024 <a class="text-white" href="#">MLG High School</a>. All Rights Reserved.</p>
-        <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> by <a class="text-white" href="https://yourwebsite.com">Your Students</a></p>
+        {{-- <p class="mb-0">Designed with <i class="bi bi-heart-fill text-danger"></i> by <a class="text-white" href="https://yourwebsite.com">Your Students</a></p> --}}
     </div>
 </div>
 <!-- Footer End -->
