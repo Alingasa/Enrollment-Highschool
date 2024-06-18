@@ -148,14 +148,14 @@
                 if (successAlert) successAlert.style.display = 'none';
             }, 3000);
 
-            document.getElementById('enterid').addEventListener('click', function(event){
-                const schoolid = document.getElementById("school_id").value;
-                if(schoolid === ''){
-                    alert("Please input your school ID.");
-                    document.getElementById('school_id').focus();
-                    event.preventDefault();
-                }
-            });
+            // document.getElementById('enterid').addEventListener('click', function(event){
+            //     const schoolid = document.getElementById("school_id").value;
+            //     if(schoolid === ''){
+            //         alert("Please input your school ID.");
+            //         document.getElementById('school_id').focus();
+            //         event.preventDefault();
+            //     }
+            // });
 
             // document.getElementById('grade_level').addEventListener('change',function(){
             //     const grade_level = document.getElementById('grade_level').value;
