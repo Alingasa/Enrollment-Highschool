@@ -68,7 +68,7 @@
         @if(session('update_success'))
         Swal.fire({
             icon: 'success',
-            title: 'Sent',
+            title: 'Successfully Apply for Enrollment',
             showConfirmButton: false,
             timer: 2500
         });
